@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\Estudo\\Estudo.csproj",
+      "projectUniqueName": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\EstudoCSharp\\Estudo.csproj",
       "projectName": "Estudo",
-      "projectPath": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\Estudo\\Estudo.csproj",
+      "projectPath": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\EstudoCSharp\\Estudo.csproj",
       "packagesPath": "C:\\Users\\Multifestnot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\Estudo\\obj\\",
+      "outputPath": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\EstudoCSharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Multifestnot\\AppData\\Roaming\\NuGet\\NuGet.Config"
