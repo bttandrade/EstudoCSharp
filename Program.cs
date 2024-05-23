@@ -14,28 +14,6 @@ Console.WriteLine("Valor da variavel altura: " + altura.ToString("0.00"));
 Console.WriteLine("Valor da variavel preco: " + preco);
 Console.WriteLine("Valor da variavel condicao: " + condicao);
 
-// Forma I de instanciar a classe.
-Pessoa p1 = new Pessoa();
-p1.Nome = "Pedro";
-p1.Idade = 20;
-p1.Apresentar();
-
-// Forma II de instanciar a classe.
-Pessoa p2 = new Pessoa
-{
-    Nome = "Amanda",
-    Idade = 19
-};
-p2.Apresentar();
-
-// Forma III de instanciar a classe.
-Pessoa p3 = new()
-{
-    Nome = "Tiago",
-    Idade = 21
-};
-p3.Apresentar();
-
 Console.WriteLine("-----------------------------");
 Console.WriteLine("Tipos de dados e Conversoes");
 
@@ -195,14 +173,29 @@ List<string> listaString = new List<string>();
 listaString.Add("BA");
 listaString.Add("SP");
 listaString.Add("RJ");
-Console.WriteLine("Lists ADD");
+Console.WriteLine("ADD");
 for (int i = 0; i < listaString.Count; i++)
 {
     Console.WriteLine($"Posicao N{i} - {listaString[i]}");
 }
 listaString.Remove("SP");
-Console.WriteLine("Lists REMOVE");
+Console.WriteLine("REMOVE");
 for (int i = 0; i < listaString.Count; i++)
 {
     Console.WriteLine($"Posicao N{i} - {listaString[i]}");
 }
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Propriedades, metodos e construtores");
+Pessoa p1 = new Pessoa();
+p1.Nome = "Pedro";
+p1.Sobrenome = "Almeida";
+Pessoa p2 = new Pessoa("Mateus", "Andrade");
+
+Curso cursoDeIngles = new Curso();
+cursoDeIngles.Nome = "Ingles";
+cursoDeIngles.Alunos = new List<Pessoa>();
+
+cursoDeIngles.AdicionarAluno(p1);
+cursoDeIngles.AdicionarAluno(p2);
+cursoDeIngles.ListarAlunos();
+    
