@@ -1,4 +1,5 @@
 ﻿using Estudo.models;
+using EstudoCSharp.models;
 
 // Tipos de dados principais.
 string apresentacao = "Ola, isso e uma string";
@@ -111,4 +112,97 @@ if (valor > 3 && valor < 8)
 if (!(valor % 2 == 0))
 {
     Console.WriteLine("Valor nao e par");
+}
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Operadores");
+
+Calculadora calc = new Calculadora();
+calc.Somar(4, 5);
+calc.Subtrair(5, 4);
+calc.Multiplicar(5, 4);
+calc.Dividir(7, 4);
+calc.Potencia(2, 2);
+calc.Seno(45);
+calc.Coseno(45);
+calc.Tangente(45);
+calc.RaizQuadrada(9);
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("FOR");
+
+int numero = 5;
+for (int contador = 1; contador <= 10; contador++)
+{
+    Console.WriteLine($"{numero} * {contador} = {numero * contador}");
+}
+
+Console.WriteLine("WHILE");
+int numero1 = 5;
+int contador1 = 1;
+while (contador1 <= 10)
+{
+    Console.WriteLine($"{numero1} * {contador1} = {numero1 * contador1}");
+    contador1++;
+}
+
+Console.WriteLine("DO WHILE");
+int numero2 = 5;
+int contador2 = 1;
+do 
+{
+    Console.WriteLine($"{numero2} * {contador2} = {numero2 * contador2}");
+    contador2++;
+} while (contador2 <= 10);
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Array");
+
+int[] arrayInteiros = new int[3];
+arrayInteiros[0] = 13;
+arrayInteiros[1] = 42;
+arrayInteiros[2] = 27;
+
+for (int i = 0; i < arrayInteiros.Length; i++)
+{
+    Console.WriteLine($"Posicao N{i} - {arrayInteiros[i]}");
+}
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Array - Resize");
+
+Array.Resize(ref arrayInteiros, arrayInteiros.Length * 2);
+foreach (int valor2 in arrayInteiros)
+{
+    Console.WriteLine(valor2);
+}
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Array - Copy");
+
+int[] arrayInteiros2 = new int[arrayInteiros.Length];
+Array.Copy(arrayInteiros, arrayInteiros2, arrayInteiros.Length);
+foreach (int valor2 in arrayInteiros2)
+{
+    Console.WriteLine(valor2);
+}
+
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Lists");
+
+List<string> listaString = new List<string>();
+listaString.Add("BA");
+listaString.Add("SP");
+listaString.Add("RJ");
+Console.WriteLine("Lists ADD");
+for (int i = 0; i < listaString.Count; i++)
+{
+    Console.WriteLine($"Posicao N{i} - {listaString[i]}");
+}
+listaString.Remove("SP");
+Console.WriteLine("Lists REMOVE");
+for (int i = 0; i < listaString.Count; i++)
+{
+    Console.WriteLine($"Posicao N{i} - {listaString[i]}");
 }
