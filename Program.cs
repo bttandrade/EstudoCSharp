@@ -1,4 +1,5 @@
-﻿using Estudo.models;
+﻿using System.Globalization;
+using Estudo.models;
 using EstudoCSharp.models;
 
 // Tipos de dados principais.
@@ -32,11 +33,13 @@ Console.WriteLine(int.TryParse("15", out a));
 Console.WriteLine("-----------------------------");
 Console.WriteLine("Condicionais if - else if - else");
 
-Console.WriteLine("Digite a quantidade em estoque: ");
-int quantidadeEstoque = int.Parse(Console.ReadLine());
+// Console.WriteLine("Digite a quantidade em estoque: ");
+// int quantidadeEstoque = int.Parse(Console.ReadLine());
 // ReadLine le uma entrada em forma de string
-Console.WriteLine("Digite a quantidade da compra: ");
-int quantidadeCompra = int.Parse(Console.ReadLine());
+int quantidadeEstoque = 10;
+// Console.WriteLine("Digite a quantidade da compra: ");
+// int quantidadeCompra = int.Parse(Console.ReadLine());
+int quantidadeCompra = 2;
 
 Console.WriteLine($"Quantidade em estoque: {quantidadeEstoque}");
 Console.WriteLine($"Quantidade compra: {quantidadeCompra}");
@@ -58,8 +61,9 @@ else
 Console.WriteLine("-----------------------------");
 Console.WriteLine("Condicionais switch");
 
-Console.WriteLine("Digite uma letra: ");
-string letra = Console.ReadLine();
+// Console.WriteLine("Digite uma letra: ");
+// string letra = Console.ReadLine();
+string letra = "a";
 
 switch(letra)
 {
@@ -189,13 +193,76 @@ Console.WriteLine("Propriedades, metodos e construtores");
 Pessoa p1 = new Pessoa();
 p1.Nome = "Pedro";
 p1.Sobrenome = "Almeida";
-Pessoa p2 = new Pessoa("Mateus", "Andrade");
+Pessoa p2 = new("Mateus", "Andrade");
 
-Curso cursoDeIngles = new Curso();
-cursoDeIngles.Nome = "Ingles";
-cursoDeIngles.Alunos = new List<Pessoa>();
+Curso cursoDeIngles = new()
+{
+    Nome = "Ingles",
+    Alunos = [],
+};
+// cursoDeIngles.Nome = "Ingles";
+// cursoDeIngles.Alunos = new List<Pessoa>();
 
 cursoDeIngles.AdicionarAluno(p1);
 cursoDeIngles.AdicionarAluno(p2);
 cursoDeIngles.ListarAlunos();
-    
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Ajustando valores");
+
+// CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+        
+decimal dinheiro = 1582.40M;
+
+Console.WriteLine(dinheiro.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR")));
+Console.WriteLine(dinheiro.ToString("C1", CultureInfo.CreateSpecificCulture("en-US")));
+
+double porcentagem = .3412;
+
+Console.WriteLine(porcentagem.ToString("P"));
+
+double numero3 = 173412;
+
+Console.WriteLine(numero3.ToString("##-##-##"));
+
+// DateTime data = DateTime.Now;
+DateTime data = DateTime.Parse("20/07/2024 18:00");
+
+Console.WriteLine(data.ToString("dd/MM/yyyy HH:mm"));
+Console.WriteLine(data.ToShortDateString());
+Console.WriteLine(data.ToShortTimeString());
+
+Console.WriteLine("-----------------------------");
+Console.WriteLine("Excecoes");
+
+// Ler Arquivos
+// string[] linhas = File.ReadAllLines("arquivos/leitura.txt");
+// foreach (string linha in linhas)
+// {
+//     Console.WriteLine(linha);
+// }
+try
+{
+    string[] linhas = File.ReadAllLines("arquivos/leitura2.txt");
+    foreach (string linha in linhas)
+    {
+        Console.WriteLine(linha);
+    }
+}
+catch (FileNotFoundException ex)
+{
+    Console.WriteLine($"Arquivo nao encontrado. {ex.Message}");
+}
+catch (DirectoryNotFoundException ex)
+{
+    Console.WriteLine($"Pasta nao encontrada. {ex.Message}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Ocorreu uma excecao generica. {ex.Message}");
+}
+finally 
+{
+    Console.WriteLine("Chegou ate aqui.");
+    // throw new Exception("Ocorreu uma excecao.");
+}
