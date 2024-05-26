@@ -27,3 +27,6 @@ C:\Users\Multifestnot\Documents\DEV\C_Csharp\EstudoCSharp\obj\Debug\net8.0\refin
 C:\Users\Multifestnot\Documents\DEV\C_Csharp\EstudoCSharp\obj\Debug\net8.0\Estudo.pdb
 C:\Users\Multifestnot\Documents\DEV\C_Csharp\EstudoCSharp\obj\Debug\net8.0\Estudo.genruntimeconfig.cache
 C:\Users\Multifestnot\Documents\DEV\C_Csharp\EstudoCSharp\obj\Debug\net8.0\ref\Estudo.dll
+C:\Users\Multifestnot\Documents\DEV\C_Csharp\EstudoCSharp\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Multifestnot\Documents\DEV\C_Csharp\EstudoCSharp\obj\Debug\net8.0\Estudo.csproj.AssemblyReference.cache
+C:\Users\Multifestnot\Documents\DEV\C_Csharp\EstudoCSharp\obj\Debug\net8.0\Estudo.csproj.Up2Date

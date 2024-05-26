@@ -1,12 +1,13 @@
 ﻿using System.Globalization;
 using Estudo.models;
 using EstudoCSharp.models;
+using Newtonsoft.Json;
 
 // Tipos de dados principais.
 string apresentacao = "Olá, isso é uma string";
 int quantidade = 10;
 double altura = 1.80;
-// Colocar um M no final do número decimal
+// Precisa colocar um M no final do número decimal
 decimal preco = 19.90M;
 bool condicao = true;
 
@@ -26,9 +27,9 @@ int b = int.Parse("5");
 Console.WriteLine (b);
 // Não pode ser nulo
 string c = a.ToString();
-// Converter para string
+// Converte para string
 Console.WriteLine(c + b);
-// Tentar converter
+// Tenta converter
 Console.WriteLine(int.TryParse("15", out a));
 
 Console.WriteLine("-----------------------------");
@@ -80,6 +81,7 @@ switch(letra)
         Console.WriteLine("Vogal");
         // Sai do caso sem ler os próximos
         break;
+    // Caso não passe por nenhum caso, entra no default
     default:
         Console.WriteLine("Consoante");
         break;
@@ -156,9 +158,9 @@ Console.WriteLine("-----------------------------");
 // Agrupamento de dados de mesmo tipo
 Console.WriteLine("Array");
 
-// Criar um array do tipo inteiro de tamanho 3
+// Cria um array do tipo inteiro de tamanho 3
 int[] arrayInteiros = new int[3];
-// Adicionar valores ao array
+// Adiciona valores ao array
 arrayInteiros[0] = 13;
 arrayInteiros[1] = 42;
 arrayInteiros[2] = 27;
@@ -194,7 +196,7 @@ Console.WriteLine("-----------------------------");
 Console.WriteLine("Lists");
 
 List<string> listaString = new List<string>();
-// Adicionar elementos
+// Adiciona elementos
 listaString.Add("BA");
 listaString.Add("SP");
 listaString.Add("RJ");
@@ -205,7 +207,7 @@ for (int i = 0; i < listaString.Count; i++)
     Console.WriteLine($"Posicao N{i} - {listaString[i]}");
 }
 
-// Remover elementos
+// Remove elementos
 listaString.Remove("SP");
 Console.WriteLine("SP removido");
 
@@ -239,28 +241,28 @@ cursoDeIngles.ListarAlunos();
 Console.WriteLine("-----------------------------");
 Console.WriteLine("Ajustando valores");
 
-// Definir nova cultura como default
+// Define uma nova cultura como default
 // CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
         
 decimal dinheiro = 1582.40M;
 
-// Alterar cultura localmente
+// Altera a cultura localmente
 Console.WriteLine(dinheiro.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR")));
 Console.WriteLine(dinheiro.ToString("C1", CultureInfo.CreateSpecificCulture("en-US")));
 
 double porcentagem = .3412;
-// Formatar como porcentagem
+// Formata como porcentagem
 Console.WriteLine(porcentagem.ToString("P"));
 
 double numero3 = 173412;
-// Formatar em três duplas de números
+// Formata em três duplas de números
 Console.WriteLine(numero3.ToString("##-##-##"));
 
 // Pega a data e hora local
 // DateTime data = DateTime.Now;
 DateTime data = DateTime.Parse("20/07/2024 18:00");
 
-// Formatar data e hora
+// Formata data e hora
 Console.WriteLine(data.ToString("dd/MM/yyyy HH:mm"));
 Console.WriteLine(data.ToShortDateString());
 Console.WriteLine(data.ToShortTimeString());
@@ -312,10 +314,10 @@ Console.WriteLine("-----------------------------");
 //Coleção que segue o padrão FIFO - Primeiro a entrar, primeiro a sair
 Console.WriteLine("Coleções - Fila");
 
-// Criar uma fila
+// Cria uma fila
 Queue<int> fila = new();
 
-// Adicionar elementos a fila
+// Adiciona elementos a fila
 fila.Enqueue(2);
 fila.Enqueue(4);
 fila.Enqueue(6);
@@ -326,7 +328,7 @@ foreach (int item in fila)
     Console.WriteLine(item);
 }
 
-// Remover elementos da fila
+// Remove elementos da fila
 Console.WriteLine($"Removendo o elemento no inicio: {fila.Dequeue()}");
 
 fila.Enqueue(10);
@@ -340,10 +342,10 @@ Console.WriteLine("-----------------------------");
 // Coleção que segue o padrão LIFO - Último a entrar, primeiro a sair
 Console.WriteLine("Coleções - Pilha");
 
-// Criar uma pilha
+// Cria uma pilha
 Stack<int> pilha = new();
 
-// Adicionar elementos em uma pilha
+// Adiciona elementos em uma pilha
 pilha.Push(2);
 pilha.Push(4);
 pilha.Push(6);
@@ -354,7 +356,7 @@ foreach (int item in pilha)
     Console.WriteLine(item);
 }
 
-// Remover elementos de uma pilha
+// Remove elementos de uma pilha
 Console.WriteLine($"Removendo o elemento no topo: {pilha.Pop()}");
 
 pilha.Push(10);
@@ -368,11 +370,11 @@ Console.WriteLine("-----------------------------");
 // Coleção de chave-valor que armazena valores sem ordem específica
 Console.WriteLine("Coleções - Dictionary");
 
-// Criar um dictionary
+// Cria um dictionary
 Dictionary<string, string> estados = []; // Nova forma
 // Dictionary<string, string> estados = new() - Forma padrão;
 
-// Adicionar elementos ao dictionary
+// Adiciona elementos ao dictionary
 estados.Add("SP", "São Paulo");
 estados.Add("BA", "Bahia");
 estados.Add("RJ", "Rio de Janeiro");
@@ -383,9 +385,9 @@ foreach (var item in estados)
 }
 Console.WriteLine("Removendo SP e alterando BA");
 
-// Remover um elemento pela chave
+// Remove um elemento pela chave
 estados.Remove("SP");
-// Alterar um elemento, mantendo a chave
+// Altera um elemento, mantendo a chave
 estados["BA"] = "Bahia - Valor Alterado";
 
 foreach (var item in estados)
@@ -393,7 +395,7 @@ foreach (var item in estados)
     Console.WriteLine($"Chave: {item.Key} / Valor: {item.Value}");
 }
 
-// Verificar se a chave existe
+// Verifica se a chave existe
 string chave = "BA";
 
 if (estados.ContainsKey(chave))
@@ -422,7 +424,7 @@ Console.WriteLine($"Altura: {tupla.altura}");
 LeituraArquivo arquivo = new();
 
 var (sucesso, linhasArquivo, quantidadeLinhas) = arquivo.LerArquivo("Arquivos/leitura.txt");
-// Desmarcar a necessidade de uma variável na tupla
+// Desmarca a necessidade de uma variável na tupla
 // var (sucesso, linhasArquivo, _) = arquivo.LerArquivo("Arquivos/leitura.txt");
 
 if (sucesso)
@@ -440,12 +442,12 @@ else
 
 Console.WriteLine("-----------------------------");
 
-// Descontruir um objeto separando suas partes em variáveis
+// Desconstrói um objeto separando suas partes em variáveis
 Console.WriteLine("Desconstrução de objetos");
 
 Pessoa p3 = new("Amanda", "Santana");
 
-// Desconstruir o objeto
+// Desconstrói o objeto
 (string nome, string sobrenome) = p3;
 
 Console.WriteLine($"{nome} {sobrenome}");
@@ -459,3 +461,40 @@ int valor3 = 9;
 bool par = valor3 % 2 == 0;
 
 Console.WriteLine($"O número {valor3} é " + (par ? "par" : "ímpar"));
+
+Console.WriteLine("-----------------------------");
+
+// NuGet - Gerenciador de pacotes do .NET
+// JSON é um formato de texto usado para transmitir informações
+
+// Serialização de dados consiste em transformar objetos em um fluxo de bytes para o armazenar
+Console.WriteLine("Serialização");
+
+DateTime dataAtual = DateTime.Now;
+
+List<Venda> listaVendas = [];
+
+Venda v1 = new(1, "Caneta", 2.00M, dataAtual);
+Venda v2 = new(2, "Lápis", 1.00M, dataAtual);
+
+listaVendas.Add(v1);
+listaVendas.Add(v2);
+
+// Usa uma função do pacote Newtonsoft.Json para serializar um objeto
+string serializado = JsonConvert.SerializeObject(listaVendas, Formatting.Indented);
+
+// Cria uma file do tipo json e escreve o texto serializado nela
+File.WriteAllText("arquivos/vendas.json", serializado);
+
+Console.WriteLine(serializado);
+
+// Deserializando
+
+// string conteudoArquivo = File.ReadAllText("arquivos/vendas.json");
+// List<Venda> listaVenda = JsonConvert.DeserializeObject<List<Venda>>(conteudoArquivo);
+
+// foreach (Venda venda in listaVenda)
+// {
+//     Console.WriteLine($"Id: {venda.Id}, Produto: {venda.Produto}, " +
+//     $"Preço: {venda.Preco.ToString("C")}, Data: {venda.DataVenda.ToShortDateString()}");
+// }
