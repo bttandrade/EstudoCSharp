@@ -266,3 +266,156 @@ finally
     Console.WriteLine("Chegou ate aqui.");
     // throw new Exception("Ocorreu uma excecao.");
 }
+
+Console.WriteLine("-----------------------------");
+
+//Coleção que segue o padrão FIFO - Primeiro a entrar, primeiro a sair
+Console.WriteLine("Coleções - Fila");
+
+// Criar um fila
+Queue<int> fila = new();
+
+// Adicionar elementos a fila
+fila.Enqueue(2);
+fila.Enqueue(4);
+fila.Enqueue(6);
+fila.Enqueue(8);
+
+foreach (int item in fila)
+{
+    Console.WriteLine(item);
+}
+
+// Remover elementos da fila
+Console.WriteLine($"Removendo o elemento no inicio: {fila.Dequeue()}");
+
+fila.Enqueue(10);
+foreach (int item in fila)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine("-----------------------------");
+
+// Coleção que segue o padrão LIFO - Último a entrar, primeiro a sair
+Console.WriteLine("Coleções - Pilha");
+
+// Criar uma pilha
+Stack<int> pilha = new();
+
+// Adicionar elementos em uma pilha
+pilha.Push(2);
+pilha.Push(4);
+pilha.Push(6);
+pilha.Push(8);
+
+foreach (int item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+// Remover elementos de uma pilha
+Console.WriteLine($"Removendo o elemento no topo: {pilha.Pop()}");
+
+pilha.Push(10);
+foreach (int item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine("-----------------------------");
+
+// Coleção de chave-valor que armazena valores sem ordem específica
+Console.WriteLine("Coleções - Dictionary");
+
+// Criar um dictionary
+Dictionary<string, string> estados = []; // Nova forma
+// Dictionary<string, string> estados = new() - Forma padrão;
+
+// Adicionar elementos ao dictionary
+estados.Add("SP", "São Paulo");
+estados.Add("BA", "Bahia");
+estados.Add("RJ", "Rio de Janeiro");
+
+foreach (var item in estados)
+{
+    Console.WriteLine($"Chave: {item.Key} / Valor: {item.Value}");
+}
+Console.WriteLine("Removendo SP e alterando BA");
+
+// Remover um elemento pela chave
+estados.Remove("SP");
+// Alterar um elemento, mantendo a chave
+estados["BA"] = "Bahia - Valor Alterado";
+
+foreach (var item in estados)
+{
+    Console.WriteLine($"Chave: {item.Key} / Valor: {item.Value}");
+}
+
+// Verificar se a chave existe
+string chave = "BA";
+
+if (estados.ContainsKey(chave))
+{
+    Console.WriteLine($"Chave existe e tem como valor: {estados[chave]}");
+}
+else 
+{
+    Console.WriteLine($"Chave não existe");
+}
+
+Console.WriteLine("-----------------------------");
+
+// Método para agrupar vários elementos de diferentes tipos de dados
+Console.WriteLine("Tuplas");
+
+(int id, string nome, string sobrenome, decimal altura) tupla = (1, "Pedro", "Almeida", 1.79M);
+// ValueTuple<int, string, string, decimal> tupla = (1, "Pedro", "Almeida", 1.79M);
+// var tupla = Tuple.Create(1, "Pedro", "Almeida", 1.79M);
+
+Console.WriteLine($"ID: {tupla.id}");
+Console.WriteLine($"Nome: {tupla.nome}");
+Console.WriteLine($"Sobrenome: {tupla.sobrenome}");
+Console.WriteLine($"Altura: {tupla.altura}");
+
+LeituraArquivo arquivo = new();
+
+var (sucesso, linhasArquivo, quantidadeLinhas) = arquivo.LerArquivo("Arquivos/leitura.txt");
+// Desmarcar a necessidade de uma variável na tupla
+// var (sucesso, linhasArquivo, _) = arquivo.LerArquivo("Arquivos/leitura.txt");
+
+if (sucesso)
+{
+    Console.WriteLine($"Quantidade de linhas do arquivo: {quantidadeLinhas}");
+    foreach (string linhas in linhasArquivo)
+    {
+        Console.WriteLine(linhas);
+    }
+}
+else
+{
+    Console.WriteLine("Não foi possível ler o arquivo");
+}
+
+Console.WriteLine("-----------------------------");
+
+// Descontruir um objeto separando suas partes em variáveis
+Console.WriteLine("Desconstrução de objetos");
+
+Pessoa p3 = new("Amanda", "Santana");
+
+// Desconstruir o objeto
+(string nome, string sobrenome) = p3;
+
+Console.WriteLine($"{nome} {sobrenome}");
+
+Console.WriteLine("-----------------------------");
+
+// Normalmente usado quando há um único if-else
+Console.WriteLine("Operador ternário");
+
+int valor3 = 9;
+bool par = valor3 % 2 == 0;
+
+Console.WriteLine($"O número {valor3} é " + (par ? "par" : "ímpar"));
