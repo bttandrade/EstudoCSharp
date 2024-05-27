@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iXGd3XldsQKC2jJB0tvZt0rwxvQXVZ/JCOz7PJ7T9GRswwSBQZ/hZcoz37btomQoXNDZyEXhRAoYfPXkeFDc+g==",
+  "dgSpecHash": "GtjJ9OvAYSX8dmES9YAUkOelFlfdDDbZI3xlrmxFnV0lA5oweJTynor0buNWMDBgSzNFaKfQwmRXVzz/IewejA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\EstudoCSharp\\Estudo.csproj",
+  "projectFilePath": "C:\\Users\\Multifestnot\\Documents\\DEV\\C_Csharp\\EstudoCSharp\\EstudoCSharp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Multifestnot\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
